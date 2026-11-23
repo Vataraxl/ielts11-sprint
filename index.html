@@ -38,6 +38,16 @@
     <section id="view-plan" class="view-panel section-stack" aria-labelledby="plan-heading">
       <h2 id="plan-heading">考情速览与 48 小时冲刺打卡</h2>
 
+      <div class="card print-banner">
+        <div class="toolbar">
+          <div class="brand-group">
+            <h3>🖨️ 可打印配套专项练习卷（A4 版）</h3>
+            <p class="small-note">含听力 40 词默写+3张地图盲填、阅读避坑+勘误剪贴条、写作8题破题卡与答题纸。</p>
+          </div>
+          <a class="btn btn-primary" href="./print-pack.html">打开配套练习 / 打印 PDF</a>
+        </div>
+      </div>
+
       <div class="card">
         <div class="toolbar">
           <h3>便携模考计时器</h3>
@@ -69,7 +79,8 @@
         <h2 id="listening-heading">听力 16 个 Section（期末 16 选 1 原题）</h2>
         <button type="button" class="btn btn-compact" id="listening-mask-btn" aria-pressed="false">遮罩自测：关</button>
       </div>
-      <p class="small-note">无本地音频？可去 B站/喜马拉雅搜对应关键词开 1.25x 倍速，或直接看书末 <strong>p.103–123 原文下划线句</strong>。标 <span aria-hidden="true">★</span> 即可筛选老师划定范围。</p>
+      <div id="listening-audio-hub" class="card"></div>
+      <p class="small-note">提示：无耳机时可直接翻真题书末 <strong>p.103–123 原文下划线句</strong>。点展开后可标 <span aria-hidden="true">★</span> 筛选老师划定范围。</p>
       <div id="listening-filters" class="filter-group" role="group" aria-label="听力筛选"></div>
       <div id="listening-list" class="accordion" aria-label="剑11听力16个Section列表"></div>
     </section>

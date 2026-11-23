@@ -2,6 +2,8 @@ import {
   EXAM_META,
   ROOKIE_SWITCHES,
   SPRINT_PLAN,
+  AUDIO_RESOURCES,
+  BILI_ALL_AUDIO_URL,
   LISTENING_SECTIONS,
   READING_ERRATUM,
   READING_STRATEGIES,
@@ -340,6 +342,25 @@ function passesFilter(item, filterValue) {
   return String(item.test) === filterValue;
 }
 
+function renderListeningAudioHub() {
+  const hub = document.getElementById('listening-audio-hub');
+  if (!hub) return;
+  hub.innerHTML = `
+    <div class="toolbar">
+      <h3>🎧《剑11》在线听力音频直达（已实测可用）</h3>
+      <a class="btn btn-compact" href="${escapeHtml(BILI_ALL_AUDIO_URL)}" target="_blank" rel="noopener noreferrer">📺 B站全套搜词直达</a>
+    </div>
+    <p class="small-note">海外主通道为 <strong>IELTS Training Online</strong>（免登录，每套内置 Section 1–4 独立 MP3 播放器）；国内也可打开 B站或「雅思哥 / 雅思考满分 / 小站雅思」App 搜 <code>剑桥雅思11 听力</code>。</p>
+    <div class="audio-links-grid">
+      ${AUDIO_RESOURCES.map(
+        (res) => `
+        <a class="btn btn-compact btn-primary" href="${escapeHtml(res.url)}" target="_blank" rel="noopener noreferrer" title="${escapeHtml(res.note)}">${escapeHtml(res.label)}</a>
+      `
+      ).join('')}
+    </div>
+  `;
+}
+
 function renderListeningList() {
   const container = document.getElementById('listening-list');
   const filtered = LISTENING_SECTIONS.filter((sec) => passesFilter(sec, state.listeningFilter));
@@ -378,7 +399,11 @@ function renderListeningList() {
                 ${isDone ? '✓ 已复习' : '标记已过'}
               </button>
             </div>
-            <button type="button" class="btn btn-compact" data-copy-text="${escapeHtml(sec.biliQuery)}">复制 B站搜词</button>
+            <div class="filter-group">
+              <a class="btn btn-compact btn-primary" href="${escapeHtml(sec.audioPageUrl)}" target="_blank" rel="noopener noreferrer">🎧 在线听本套</a>
+              <a class="btn btn-compact" href="${escapeHtml(sec.biliSearchUrl)}" target="_blank" rel="noopener noreferrer">📺 B站搜本节</a>
+              <button type="button" class="btn btn-compact" data-copy-text="${escapeHtml(sec.biliQuery)}">复制搜词</button>
+            </div>
           </div>
           <div class="quote-block">
             <strong>⚠️ 陷阱与定位重点：</strong>
@@ -1046,6 +1071,7 @@ function init() {
   }
 
   renderPlanView();
+  renderListeningAudioHub();
   renderFilterButtons('listening-filters', state.listeningFilter, applyListeningFilter);
   renderListeningList();
 

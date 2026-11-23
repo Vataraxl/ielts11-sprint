@@ -1,0 +1,807 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <title>《剑11》期末 48h 冲刺配套练习卷（A4 可打印版）</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%233749B8'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='28' font-weight='700' font-family='sans-serif' fill='white'%3E11%3C/text%3E%3C/svg%3E">
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 10mm 13mm;
+    }
+
+    :root {
+      color-scheme: light;
+      --ink: #16181d;
+      --muted: #4b5262;
+      --line: #c7ccd6;
+      --soft: #f3f5f8;
+      --brand: #2c3e9e;
+      --warn-bg: #fff5f0;
+      --warn-line: #d45d2a;
+      --target-size: 24px;
+    }
+
+    @media (pointer: coarse) {
+      :root {
+        --target-size: 44px;
+      }
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-family: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--ink);
+      background: #e9ecf1;
+      line-height: 1.4;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      padding: 0 0 2rem;
+      overflow-wrap: break-word;
+    }
+
+    .no-print {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: #ffffff;
+      border-bottom: 1px solid var(--line);
+      padding: 0.6rem max(1rem, env(safe-area-inset-right, 0px)) 0.6rem max(1rem, env(safe-area-inset-left, 0px));
+    }
+
+    .toolbar {
+      max-width: 210mm;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-block-size: var(--target-size);
+      padding: 0.35rem 0.85rem;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      color: var(--ink);
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--brand);
+      border-color: var(--brand);
+      color: #ffffff;
+    }
+
+    .sheet {
+      max-width: 210mm;
+      margin: 1rem auto 0;
+      background: #ffffff;
+      padding: 10mm 13mm;
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.08);
+      font-size: 9.2pt;
+    }
+
+    @media print {
+      html,
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      .sheet {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        font-size: 9pt;
+      }
+    }
+
+    h1 {
+      margin: 0 0 0.2rem;
+      font-size: 14.5pt;
+      color: var(--brand);
+      text-wrap: balance;
+    }
+
+    h2 {
+      margin: 0.55rem 0 0.35rem;
+      padding: 0.22rem 0.5rem;
+      background: var(--soft);
+      border-left: 3.5px solid var(--brand);
+      font-size: 11pt;
+      break-after: avoid;
+    }
+
+    h3 {
+      margin: 0.45rem 0 0.25rem;
+      font-size: 9.6pt;
+      color: var(--ink);
+      break-after: avoid;
+    }
+
+    p,
+    li {
+      margin: 0.14rem 0;
+      text-wrap: pretty;
+    }
+
+    .doc-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.4rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1.5px solid var(--ink);
+      font-size: 8.5pt;
+      color: var(--muted);
+    }
+
+    .alert-box {
+      margin: 0.4rem 0;
+      padding: 0.35rem 0.55rem;
+      border: 1px solid var(--warn-line);
+      background: var(--warn-bg);
+      border-radius: 4px;
+      font-size: 8.4pt;
+      break-inside: avoid;
+    }
+
+    .cutout-box {
+      margin: 0.55rem 0;
+      padding: 0.5rem 0.7rem;
+      border: 1.5px dashed var(--ink);
+      background: #ffffff;
+      font-size: 8.8pt;
+      break-inside: avoid;
+    }
+
+    .page-break {
+      break-before: page;
+    }
+
+    .avoid-break {
+      break-inside: avoid;
+    }
+
+    /* 练习排版网格与书写线 */
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.35rem 1.2rem;
+    }
+
+    @media (max-width: 640px) {
+      .sheet {
+        padding: 1rem;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      .two-col {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .q-list {
+      margin: 0.15rem 0 0.35rem;
+      padding-left: 1.3rem;
+      font-size: 8.6pt;
+    }
+
+    .q-list li {
+      margin: 0.14rem 0;
+    }
+
+    .blank {
+      display: inline-block;
+      min-width: 6.4em;
+      border-bottom: 1px solid var(--ink);
+      vertical-align: baseline;
+      height: 1em;
+    }
+
+    .blank-short {
+      min-width: 3.2em;
+    }
+
+    .blank-long {
+      display: block;
+      width: 100%;
+      border-bottom: 1px solid #8c93a3;
+      height: 1.25em;
+      margin: 0.08rem 0;
+    }
+
+    .hint-tag {
+      color: var(--muted);
+      font-size: 8pt;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.25rem 0 0.45rem;
+      font-size: 8.5pt;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--line);
+      padding: 0.22rem 0.4rem;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--soft);
+      font-weight: 700;
+    }
+
+    .tf-row {
+      padding: 0.28rem 0;
+      border-bottom: 1px dotted var(--line);
+      break-inside: avoid;
+    }
+
+    .tf-opts {
+      font-size: 8.4pt;
+      color: var(--muted);
+      margin-top: 0.1rem;
+    }
+
+    .write-card {
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 0.32rem 0.55rem;
+      margin: 0.32rem 0;
+      font-size: 8.5pt;
+      break-inside: avoid;
+    }
+
+    .write-card-title {
+      font-weight: 700;
+      font-size: 9pt;
+      margin-bottom: 0.1rem;
+    }
+
+    .prompt-en {
+      font-size: 8pt;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 0.15rem;
+    }
+
+    .lined-paper {
+      margin: 0.45rem 0;
+    }
+
+    .lined-paper .blank-long {
+      height: 1.85em;
+    }
+
+    .check-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem 0.9rem;
+      font-size: 8.5pt;
+      margin-top: 0.4rem;
+      padding: 0.4rem 0.6rem;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      break-inside: avoid;
+    }
+
+    .ans-grid {
+      font-size: 8pt;
+      line-height: 1.38;
+    }
+
+    .ans-grid h3 {
+      margin: 0.36rem 0 0.14rem;
+      font-size: 8.9pt;
+    }
+
+    .ans-grid p,
+    .ans-grid li {
+      margin: 0.12rem 0;
+    }
+
+    .ans-grid ul {
+      margin: 0.12rem 0;
+      padding-left: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="no-print">
+    <div class="toolbar">
+      <div class="btn-row">
+        <a class="btn" href="./index.html">← 返回手机冲刺主页</a>
+        <span style="font-size: 0.85rem; color: var(--muted); align-self: center;">建议：A4 纸双面打印，末页答案可单独撕下核对</span>
+      </div>
+      <button type="button" class="btn btn-primary" onclick="window.print()">🖨️ 一键打印 / 存为 PDF</button>
+    </div>
+  </div>
+
+  <main class="sheet">
+    <!-- ==================== 卷头 ==================== -->
+    <header class="avoid-break">
+      <h1>《剑桥雅思11》期末 48 小时冲刺配套练习卷</h1>
+      <div class="doc-meta">
+        <span><strong>适用考情：</strong>听力 16 选 1 原题 · 阅读 12 选 1–2（原题+课外） · 写作 8 选 1</span>
+        <span><strong>用时建议：</strong>听力 35m · 阅读 35m · 写作破题 30m + 模考 60m</span>
+      </div>
+      <div class="alert-box">
+        <strong>考前扫盲三道红线（高考 130 转战雅思必看）：</strong>
+        ① 听力看到 <code>ONE WORD ONLY</code> 写两个词直接 0 分，重点盯死<strong>复数 -s</strong> 与<strong>先说后改陷阱</strong>；
+        ② 阅读不要通读全文、不要脑补推理，原文未提及一律选 <code>NOT GIVEN</code>；
+        ③ 小作文只报数据<strong>不写原因</strong>且必须有 <code>Overall</code> 概述；大作文写满 250 词且<strong>首段末句亮明立场</strong>。
+      </div>
+    </header>
+
+    <!-- ==================== PART 1: 听力 ==================== -->
+    <section>
+      <h2>Part 1｜听力 16 选 1 原题专项：40 词高频默写 + 3 张地图盲填</h2>
+      <p class="hint-tag">提示：配套音频可在手机网页 <code>vataraxl.github.io/ielts11-sprint</code>「听力」页一键播放，或打开《剑11》书末 p.103–123 原文脚本对照。</p>
+
+      <h3>练习 A｜《剑11》听力原题语境填空默写（共 40 题，覆盖专有名词与高频错词）</h3>
+      <div class="two-col">
+        <div>
+          <p><strong>【Test 1】S1 / S2 / S4（书 p.10-17）</strong></p>
+          <ol class="q-list">
+            <li>The <span class="blank"></span> Room – seats 100. <span class="hint-tag">(查尔顿厅，拼写)</span></li>
+            <li>Cost of Main Hall for Saturday: £<span class="blank blank-short"></span> <span class="hint-tag">(干扰 £75)</span></li>
+            <li>+ £250 deposit (<span class="blank"></span> payment required) <span class="hint-tag">(现金)</span></li>
+            <li>contact caretaker to arrange <span class="blank"></span> <span class="hint-tag">(入场)</span></li>
+            <li>All <span class="blank"></span> must be taken down. <span class="hint-tag">(装饰品，复数)</span></li>
+            <li>Visitors should wear <span class="blank"></span>. <span class="hint-tag">(鞋子，复数)</span></li>
+            <li>locating targets for <span class="blank"></span> <span class="hint-tag">(生态保护)</span></li>
+            <li>had sufficient <span class="blank"></span> in the water <span class="hint-tag">(氧气)</span></li>
+            <li>hotspots for marine <span class="blank"></span> <span class="hint-tag">(哺乳动物，复数)</span></li>
+            <li>catch fish only for <span class="blank"></span> <span class="hint-tag">(食用/消费)</span></li>
+          </ol>
+
+          <p><strong>【Test 2】S1 / S4（书 p.33-40）</strong></p>
+          <ol class="q-list" start="11">
+            <li>staying in a <span class="blank"></span> during the week <span class="hint-tag">(青旅，非 hotel)</span></li>
+            <li>17, <span class="blank"></span> Street, Stamford <span class="hint-tag">(街道拼写)</span></li>
+            <li>Postcode: <span class="blank"></span> <span class="hint-tag">(英国邮编)</span></li>
+            <li>Studying <span class="blank"></span> (major) and history <span class="hint-tag">(政治学)</span></li>
+            <li>young people who are <span class="blank"></span> <span class="hint-tag">(残障的)</span></li>
+            <li>Beside a <span class="blank"></span> <span class="hint-tag">(运河，非 channel)</span></li>
+            <li>floor built on pads made of <span class="blank"></span> <span class="hint-tag">(橡胶)</span></li>
+            <li>walls are <span class="blank"></span> in shape <span class="hint-tag">(弧形的 -d)</span></li>
+            <li>panels and <span class="blank"></span> on walls <span class="hint-tag">(幕布，复数)</span></li>
+            <li>criticise the <span class="blank"></span> style <span class="hint-tag">(国际化的)</span></li>
+          </ol>
+        </div>
+
+        <div>
+          <p><strong>【Test 3】S1 / S3 / S4（书 p.57-64）</strong></p>
+          <ol class="q-list" start="21">
+            <li>learn about <span class="blank"></span> and collect some <span class="hint-tag">(蘑菇，复数)</span></li>
+            <li>Part of the <span class="blank"></span> is suitable for swimming. <span class="hint-tag">(河流)</span></li>
+            <li>People who are <span class="blank"></span> outside the forest <span class="hint-tag">(跳舞)</span></li>
+            <li>Malcolm sitting on a tree trunk and <span class="blank"></span> <span class="hint-tag">(哭泣)</span></li>
+            <li>Add a <span class="blank"></span> for each person <span class="hint-tag">(围巾，单数)</span></li>
+            <li>investigate customer needs and <span class="blank"></span> <span class="hint-tag">(态度，复数)</span></li>
+            <li>access records of <span class="blank"></span> in hospital <span class="hint-tag">(病人，非 patience)</span></li>
+            <li>recorded their <span class="blank"></span> while travelling <span class="hint-tag">(情绪，复数)</span></li>
+            <li>participants must feel <span class="blank"></span> <span class="hint-tag">(舒适自在的)</span></li>
+            <li>time is needed for the <span class="blank"></span> of data <span class="hint-tag">(分析)</span></li>
+          </ol>
+
+          <p><strong>【Test 4】S1 / S4（书 p.80-86）</strong></p>
+          <ol class="q-list" start="31">
+            <li>Venue: The <span class="blank"></span> school <span class="hint-tag">(中学，干扰 primary)</span></li>
+            <li>Carolyn Hart plays the <span class="blank"></span> <span class="hint-tag">(长笛，干扰 oboe)</span></li>
+            <li>Flower show in <span class="blank"></span> Hall <span class="hint-tag">(礼堂名拼写)</span></li>
+            <li>Erosion is more likely in soil that is <span class="blank"></span> <span class="hint-tag">(干燥的)</span></li>
+            <li>CO2 moves from <span class="blank"></span> to microbes <span class="hint-tag">(根系，复数)</span></li>
+            <li>make sure soil remains fertile and <span class="blank"></span> <span class="hint-tag">(湿润的)</span></li>
+            <li>increasing the <span class="blank"></span> of plants grown <span class="hint-tag">(多样性)</span></li>
+            <li>study on a big <span class="blank"></span> farm <span class="hint-tag">(牛群/畜牧)</span></li>
+            <li>increase carbon using <span class="blank"></span> <span class="hint-tag">(草类，复数)</span></li>
+            <li>giving farmers <span class="blank"></span> for carbon storage <span class="hint-tag">(报酬)</span></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="avoid-break">
+        <h3>练习 B｜《剑11》全部 3 张听力地图题方位盲填（对照真题书 p.13 / p.36 / p.83 填入字母 A–I）</h3>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 18%;">所属真题</th>
+              <th style="width: 58%;">题号、建筑名称与原文行走路径提示</th>
+              <th style="width: 24%;">我填的字母</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Test 1 S2</strong><br>农场 (p.13)<br>起点：主路底端</td>
+              <td>
+                Q15 Scarecrow（停车场角落紧邻 Main Path）：____ &nbsp;|&nbsp;
+                Q16 Maze（New Barn 对面右岔路旁）：____<br>
+                Q17 Café（朝鱼塘桥走，过桥前右转第一个弯）：____ &nbsp;|&nbsp;
+                Q18 Black Barn（紧邻 New Barn 右转刚拐弯）：____<br>
+                Q19 Covered picnic area（过桥后右手边近 Farm Yard）：____ &nbsp;|&nbsp;
+                Q20 Fiddy House（过桥走农场左侧小路到头）：____
+              </td>
+              <td>
+                15:____ 16:____<br>
+                17:____ 18:____<br>
+                19:____ 20:____
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Test 2 S2</strong><br>剧院 (p.36)<br>起点：大厅 foyer</td>
+              <td>
+                Q17 box office（虽属本楼但在隔壁，马路独立入口）：____<br>
+                Q18 theatre manager's office（过双开门右转，走廊尽头左门）：____<br>
+                Q19 lighting box（过双开门左转，饮水机右转，尽头再右转第2间）：____<br>
+                Q20 artistic director's office（过双开门右转，右手边第1间）：____
+              </td>
+              <td>
+                17:____ 18:____<br>
+                19:____ 20:____
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Test 4 S2</strong><br>博物馆地下室 (p.83)<br>起点：楼梯下进入休息区</td>
+              <td>
+                Q17 restaurant（直走到休息区尽头，右转走廊正对门）：____<br>
+                Q18 café（直走右转进走廊，右手边紧邻第一间）：____<br>
+                Q19 baby-changing（穿过休息区沿左侧走廊直走，左手边）：____<br>
+                Q20 cloakroom（休息区左侧，进左走廊前最后一扇门）：____
+              </td>
+              <td>
+                17:____ 18:____<br>
+                19:____ 20:____
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="write-card">
+          <div class="write-card-title">听力考场保底速记（16 选 1 考原题专用）</div>
+          <p><strong>1. 地图题必听路标词：</strong><code>opposite</code>（对面）/ <code>first bend</code>（第一个弯）/ <code>just before the bridge</code>（过桥前）/ <code>at the end of the corridor</code>（走廊尽头）/ <code>far side of</code>（远端）/ <code>last door before...</code>（进某处前最后一扇门）。</p>
+          <p><strong>2. 先说后改高频信号：</strong>听到 <code>actually / in fact / rather than / sorry / used to / postpone / next month</code> 立刻警觉——前面的多半是干扰项，后面才是真答案！</p>
+          <p><strong>3. 零分重灾区自查：</strong>① <code>ONE WORD ONLY</code> 绝对不能加冠词 <code>a/the</code>；② 邮编/人名首字母写清楚（<code>Charlton</code> / <code>Buckleigh</code> / <code>PE9 7QT</code> / <code>Bythwaite</code>）；③ 确认名词是否要加 <code>-s</code>（<code>shoes / mammals / curtains / mushrooms / attitudes / patients / emotions / roots / grasses</code>）。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PART 2: 阅读 ==================== -->
+    <section class="page-break">
+      <h2>Part 2｜阅读 12 篇防脑补特训：T/F/NG 12 题 + 高频同义替换 + 勘误剪贴条</h2>
+
+      <div class="cutout-box">
+        <strong>✂️【打印剪贴条】《剑11》书 p.131（Test 4 阅读答案）官方勘误修正（源自 PDF 第 144 页）</strong><br>
+        原书第 131 页印刷有误！请剪下贴到书上：
+        <strong>P1 Q9 = B</strong>（原书误印 A） ｜
+        <strong>P2：Q19 = TRUE</strong>（原书误印 D），<strong>Q20 = TRUE</strong>，<strong>Q21 = NOT GIVEN</strong>，<strong>Q22 = TRUE</strong>，<strong>Q23 = FALSE</strong>，<strong>Q24 = C</strong>，<strong>Q25 = A</strong>，<strong>Q26 = E</strong>。
+      </div>
+
+      <h3>练习 C｜TRUE / FALSE / NOT GIVEN 防脑补 12 题（精选《剑11》最易错判断，标出定位依据）</h3>
+      <p class="hint-tag">铁律：原文明确唱反调才选 <strong>FALSE</strong>；原文没提或无法比出高低/因果一律选 <strong>NOT GIVEN</strong>。</p>
+
+      <div class="tf-row">
+        <strong>1.</strong> (T1 P1 Q8) Methods for predicting the Earth's population have recently changed.
+        <div class="tf-opts">[ ] TRUE &nbsp; [ ] FALSE &nbsp; [ ] NOT GIVEN &nbsp;&nbsp; 定位理由：<span class="blank" style="min-width: 20em;"></span></div>
+      </div>
+      <div class="tf-row">
+        <strong>2.</strong> (T1 P1 Q10) The crops produced in vertical farms will depend on the season.
+        <div class="tf-opts">[ ] TRUE &nbsp; [ ] FALSE &nbsp; [ ] NOT GIVEN &nbsp;&nbsp; 定位理由：<span class="blank" style="min-width: 20em;"></span></div>
+      </div>
+      <div class="tf-row">
+        <strong>3.</strong> (T1 P1 Q12) Fertilisers will be needed for certain crops in vertical farms.
+        <div class="tf-opts">[ ] TRUE &nbsp; [ ] FALSE &nbsp; [ ] NOT GIVEN &nbsp;&nbsp; 定位理由：<span class="blank" style="min-width: 20em;"></span></div>
+      </div>
+      <div class="tf-row">
+        <strong>4.</strong> (T1 P2 Q14) The Falkirk Wheel has linked the Forth &amp; Clyde Canal with the Union Canal for the first time in their history.
+        <div class="tf-opts">[ ] TRUE &nbsp; [ ] FALSE &nbsp; [ ] NOT GIVEN &nbsp;&nbsp; 定位理由：<span class="blank" style="min-width: 20em;"></span></div>
+      </div>
+      <div class="tf-row">
+        <strong>5.</strong> (T1 P2 Q15) There was some opposition to the design of the Falkirk Wheel at first.
+        <div class="tf-opts">[ ] TRUE &nbsp; [ ] FALSE &nbsp; [ ] NOT GIVEN &nbsp;&nbsp; 定位理由：<span class="blank" style="min-width: 20em;"></span></div>
+      </div>
+      <div class="tf-row">
+        <strong>6.</strong> (T1 P2 Q17) The Falkirk Wheel is the only boat lift in the world which has steel sections bolted together by hand.
+        <div class="tf-opts">[ ] TRUE &nbsp; [ ] FALSE &nbsp; [ ] NOT GIVEN &nbsp;&nbsp; 定位理由：<span class="blank" style="min-width: 20em;"></span></div>
+      </div>
+      <div class="tf-row">
+        <strong>7.</strong> (T1 P2 Q18) The weight of the gondolas varies according to the size of boat being carried.
+        <div class="tf-opts">[ ] TRUE &nbsp; [ ] FALSE &nbsp; [ ] NOT GIVEN &nbsp;&nbsp; 定位理由：<span class="blank" style="min-width: 20em;"></span></div>
+      </div>
+      <div class="tf-row">
+        <strong>8.</strong> (T2 P1 Q2) The <em>Mary Rose</em> was the only ship to sink in the battle of 19 July 1545.
+        <div class="tf-opts">[ ] TRUE &nbsp; [ ] FALSE &nbsp; [ ] NOT GIVEN &nbsp;&nbsp; 定位理由：<span class="blank" style="min-width: 20em;"></span></div>
+      </div>
+      <div class="tf-row">
+        <strong>9.</strong> (T2 P1 Q4) Alexander McKee knew that the wreck would contain many valuable historical objects.
+        <div class="tf-opts">[ ] TRUE &nbsp; [ ] FALSE &nbsp; [ ] NOT GIVEN &nbsp;&nbsp; 定位理由：<span class="blank" style="min-width: 20em;"></span></div>
+      </div>
+      <div class="tf-row">
+        <strong>10.</strong> (T3 P1 Q10) Gold was the most valuable material transported along the Silk Road.
+        <div class="tf-opts">[ ] TRUE &nbsp; [ ] FALSE &nbsp; [ ] NOT GIVEN &nbsp;&nbsp; 定位理由：<span class="blank" style="min-width: 20em;"></span></div>
+      </div>
+      <div class="tf-row">
+        <strong>11.</strong> (T3 P1 Q12) The Byzantines spread the practice of silk production across the West.
+        <div class="tf-opts">[ ] TRUE &nbsp; [ ] FALSE &nbsp; [ ] NOT GIVEN &nbsp;&nbsp; 定位理由：<span class="blank" style="min-width: 20em;"></span></div>
+      </div>
+      <div class="tf-row">
+        <strong>12.</strong> (T3 P1 Q13) Silk yarn makes up the majority of silk currently exported from China.
+        <div class="tf-opts">[ ] TRUE &nbsp; [ ] FALSE &nbsp; [ ] NOT GIVEN &nbsp;&nbsp; 定位理由：<span class="blank" style="min-width: 20em;"></span></div>
+      </div>
+
+      <div class="avoid-break">
+        <h3>练习 D｜《剑11》阅读 15 组核心同义替换配对（将右栏字母 A–O 填入左栏横线，吃透“怎么找答案”）</h3>
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 52%;">题干/选项高频表达（填入对应字母）</th>
+              <th style="width: 48%;">原文同义替换原句（已打乱顺序）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1. destruction to food-producing land → ____</td><td>A. operate at half strength</td></tr>
+            <tr><td>2. which are not fixed (trays) → ____</td><td>B. undeterred by challenges</td></tr>
+            <tr><td>3. nearby ancient monument → ____</td><td>C. noticeable in its absence</td></tr>
+            <tr><td>4. limit the effectiveness → ____</td><td>D. despoiled most of the land</td></tr>
+            <tr><td>5. non-fossil-based fuels → ____</td><td>E. deceptively simple... meticulously composed</td></tr>
+            <tr><td>6. effects may not be long-lasting → ____</td><td>F. linking scenes... remind of salient motifs</td></tr>
+            <tr><td>7. a topic worth exploring → ____</td><td>G. sense the artist's vision in paintings</td></tr>
+            <tr><td>8. follow a straight line → ____</td><td>H. move on rails</td></tr>
+            <tr><td>9. unlikely to be discouraged by difficulties → ____</td><td>I. shouldn't exclude thinking thoroughly about</td></tr>
+            <tr><td>10. eat more than needed for immediate purposes → ____</td><td>J. return to its pre-engineered condition very rapidly</td></tr>
+            <tr><td>11. perceive the intention behind works of art → ____</td><td>K. historically important Antonine Wall</td></tr>
+            <tr><td>12. more carefully put together than they appear → ____</td><td>L. renewable energy</td></tr>
+            <tr><td>13. surprised if a film lacks background music → ____</td><td>M. fatten themselves with heavy feeding in advance</td></tr>
+            <tr><td>14. help make certain connections within the film → ____</td><td>N. tend to be linear, not zigzaggy</td></tr>
+            <tr><td>15. noted by subconscious minds (≠ aware) → ____</td><td>O. not meant to be noticeable / noted subconsciously</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ==================== PART 3: 写作 ==================== -->
+    <section class="page-break">
+      <h2>Part 3｜写作双课件专项训练：趋势词默写 + 病句改错 + 全 8 题破题卡</h2>
+
+      <div class="avoid-break">
+        <h3>练习 E-1｜《小作文三步法》Slide 30 高频趋势表达默写（汉译英）</h3>
+        <table>
+          <tbody>
+            <tr>
+              <td>1. 稳步上升：<span class="blank"></span></td>
+              <td>2. 急剧上升：<span class="blank"></span></td>
+              <td>3. 缓慢/逐渐上升：<span class="blank"></span></td>
+            </tr>
+            <tr>
+              <td>4. 暴跌至：<span class="blank"></span></td>
+              <td>5. 达到峰值：<span class="blank"></span></td>
+              <td>6. 处于（某初始值）：<span class="blank"></span></td>
+            </tr>
+            <tr>
+              <td>7. 波动：<span class="blank"></span></td>
+              <td>8. 急剧下降：<span class="blank"></span></td>
+              <td>9. 跌至低谷：<span class="blank"></span></td>
+            </tr>
+            <tr>
+              <td>10. 保持稳定：<span class="blank"></span></td>
+              <td>11. 趋于平稳：<span class="blank"></span></td>
+              <td>12. 触及最低点：<span class="blank"></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>练习 E-2｜《剑11》全部 4 道 Task 1（重点练习 Step 1 改写首段 + Step 2 Overview 不写数字）</h3>
+
+      <div class="write-card">
+        <div class="write-card-title">⭐ Test 2 Task 1（书 p.54，小作文 PPT 末页重点）英国某大学学生掌握外语比例（2000 vs 2010 双饼图）</div>
+        <div class="prompt-en">The charts below show the proportions of British students at one university in England who were able to speak other languages in addition to English, in 2000 and 2010.</div>
+        <div>Step 1 改写首段（删 below）：<span class="blank-long"></span></div>
+        <div>Step 2 Overview（Overall...）：<span class="blank-long"></span></div>
+        <div>Step 3 数据分组（上升组 vs 下降/不变组）：<span class="blank-long"></span></div>
+      </div>
+
+      <div class="write-card">
+        <div class="write-card-title">⭐ Test 4 Task 1（书 p.100，小作文 PPT 末页重点 + 书 p.138 官方 7 分范文）Ashdown 博物馆翻修前后客流与满意度</div>
+        <div class="prompt-en">The table below shows the numbers of visitors to Ashdown Museum during the year before and the year after it was refurbished. The charts show the result of surveys asking visitors how satisfied they were with their visit.</div>
+        <div>Step 1 改写首段（表格+饼图同时交代）：<span class="blank-long"></span></div>
+        <div>Step 2 Overview（总人数与满意率双趋势）：<span class="blank-long"></span></div>
+        <div>Step 3 数据分组（人数+满意组 vs 不满意+无回应）：<span class="blank-long"></span></div>
+      </div>
+
+      <div class="write-card">
+        <div class="write-card-title">Test 1 Task 1（书 p.30）世界六个地区工、农、生活用水比例（6 个静态饼图）</div>
+        <div class="prompt-en">The charts below show the percentage of water used for different purposes in six areas of the world.</div>
+        <div>Step 1 改写首段：<span class="blank-long"></span></div>
+        <div>Step 2 Overview（农业主导区 vs 工业主导区 + 极值）：<span class="blank-long"></span></div>
+      </div>
+
+      <div class="write-card">
+        <div class="write-card-title">Test 3 Task 1（书 p.77）1967–2007 欧洲四国人均二氧化碳排放量（折线图）</div>
+        <div class="prompt-en">The graph below shows average carbon dioxide (CO2) emissions per person in the United Kingdom, Sweden, Italy and Portugal between 1967 and 2007.</div>
+        <div>Step 1 改写首段：<span class="blank-long"></span></div>
+        <div>Step 2 Overview（上升两国 vs 下降两国 + 始终最高）：<span class="blank-long"></span></div>
+      </div>
+    </section>
+
+    <section class="page-break">
+      <h3>练习 F-1｜4.5–5.5 分真实病句改错（全取自《大作文PPT》第 39 页及《剑11》书末低分范文，考场零容错）</h3>
+      <ol class="q-list">
+        <li><code>I am agree with this idea.</code> → <span class="blank" style="min-width: 24em;"></span></li>
+        <li><code>Nowadays, the problem of rubbish is become more and more serious.</code> → <span class="blank" style="min-width: 15em;"></span></li>
+        <li><code>If everybody recycle the waste, the Earth will be more clean.</code> → <span class="blank" style="min-width: 18em;"></span></li>
+        <li><code>In this essay, we are going to talking about why people have different views.</code> → <span class="blank" style="min-width: 13em;"></span></li>
+        <li><code>From the point of my view, I agree with that...</code> → <span class="blank" style="min-width: 20em;"></span></li>
+        <li><code>It is obviously that the numbers of visitors increased.</code> → <span class="blank" style="min-width: 17em;"></span></li>
+        <li><code>The table shows the amount of visitors to Ashdown Museum.</code> → <span class="blank" style="min-width: 16em;"></span></li>
+        <li><code>Because there are other progress such as health system.</code> <span class="hint-tag">(碎片句+不可数)</span> → <span class="blank" style="min-width: 13em;"></span></li>
+        <li><code>A country doesn't have a completed systems is not a completed country.</code> → <span class="blank" style="min-width: 14em;"></span></li>
+        <li><code>Economic progress could rise satisfaction about their life.</code> → <span class="blank" style="min-width: 17em;"></span></li>
+      </ol>
+
+      <h3>练习 F-2｜《剑11》全部 4 道 Task 2 破题骨架练习（每题练熟：首段立场 + 2 个主体分论点 + 收束）</h3>
+
+      <div class="write-card">
+        <div class="write-card-title">⭐ Test 2 Task 2（书 p.55，大作文 PPT 第 35–41 页精讲 + 7 分范文）强制家庭垃圾回收立法（观点表态）</div>
+        <div class="prompt-en">Some people claim that not enough of the waste from homes is recycled. They say that the only way to increase recycling is for governments to make it a legal requirement. To what extent do you think laws are needed...?</div>
+        <div>① 改写与立场（推荐：基本同意 + 有限让步）：<span class="blank-long"></span></div>
+        <div>② Body 1（立论：为什么光靠自觉不够，必须有法可依）：<span class="blank-long"></span></div>
+        <div>③ Body 2（让步反驳：Admittedly... 配套标签与回收设施）：<span class="blank-long"></span></div>
+      </div>
+
+      <div class="write-card">
+        <div class="write-card-title">⭐ Test 3 Task 2（书 p.78，大作文 PPT 末页原图 + 书 p.137 官方 7 分范文）学外语是否只为旅游或工作（双边讨论）</div>
+        <div class="prompt-en">Some people say that the only reason for learning a foreign language is in order to travel to or work in a foreign country. Others say that these are not the only reasons why someone should learn a foreign language. Discuss both these views and give your own opinion.</div>
+        <div>① 改写与立场：<span class="blank-long"></span></div>
+        <div>② Body 1（View A 就业与旅游实用理由）：<span class="blank-long"></span></div>
+        <div>③ Body 2（View B 文化理解/思维拓展 + 己见）：<span class="blank-long"></span></div>
+      </div>
+
+      <div class="write-card">
+        <div class="write-card-title">Test 1 Task 2（书 p.31）政府应把钱花在铁路而不是公路上（观点表态）</div>
+        <div class="prompt-en">Governments should spend money on railways rather than roads. To what extent do you agree or disagree with this statement?</div>
+        <div>① 改写与立场：<span class="blank-long"></span></div>
+        <div>② Body 1（支持铁路：运力大、缓解拥堵、低碳环保）：<span class="blank-long"></span></div>
+        <div>③ Body 2（让步公路：农村物流与短途末端通勤不可替代）：<span class="blank-long"></span></div>
+      </div>
+
+      <div class="write-card">
+        <div class="write-card-title">Test 4 Task 2（书 p.101）经济发展是首要目标 vs 其他类型进步同样重要（双边讨论）</div>
+        <div class="prompt-en">Many governments think that economic progress is their most important goal. Some people, however, think that other types of progress are equally important for a country. Discuss both these views and give your own opinion.</div>
+        <div>① 改写与立场：<span class="blank-long"></span></div>
+        <div>② Body 1（View A 经济优先的合理性：税收、就业、基建基础）：<span class="blank-long"></span></div>
+        <div>③ Body 2（View B 医疗/教育/环保同样关键 + 己见）：<span class="blank-long"></span></div>
+      </div>
+    </section>
+
+    <!-- ==================== 仿真答题纸 1: TASK 1 ==================== -->
+    <section class="page-break">
+      <h2>练习 G-1｜Writing Task 1 考场仿真手写纸（限时 20 分钟 · ≥ 150 词）</h2>
+      <div class="doc-meta">
+        <span><strong>所选题号：</strong>Test ___ Task 1</span>
+        <span><strong>目标词数：</strong>160–190 词（约写满以下 16–18 行）</span>
+        <span><strong>实际用时：</strong>____ 分 ____ 秒</span>
+      </div>
+      <div class="lined-paper">
+        <span class="blank-long"></span><span class="blank-long"></span><span class="blank-long"></span><span class="blank-long"></span>
+        <span class="blank-long"></span><span class="blank-long"></span><span class="blank-long"></span><span class="blank-long"></span>
+        <span class="blank-long"></span><span class="blank-long"></span><span class="blank-long"></span><span class="blank-long"></span>
+        <span class="blank-long"></span><span class="blank-long"></span><span class="blank-long"></span><span class="blank-long"></span>
+        <span class="blank-long"></span><span class="blank-long"></span><span class="blank-long"></span><span class="blank-long"></span>
+      </div>
+      <div class="check-strip">
+        <strong>写完自查（Band 9 清单）：</strong>
+        <span>[ ] 首段完全改写且删了 below</span>
+        <span>[ ] 有 Overall 且无数字</span>
+        <span>[ ] 挑了 4–6 个核心数据且分 2 组</span>
+        <span>[ ] 单位（%/tonnes）没漏</span>
+        <span>[ ] 过去年份全用一般过去时</span>
+        <span>[ ] 没写原因和个人评价</span>
+      </div>
+    </section>
+
+    <!-- ==================== 仿真答题纸 2: TASK 2 ==================== -->
+    <section class="page-break">
+      <h2>练习 G-2｜Writing Task 2 考场仿真手写纸（限时 40 分钟 · ≥ 250 词）</h2>
+      <div class="doc-meta">
+        <span><strong>所选题号：</strong>Test ___ Task 2</span>
+        <span><strong>目标词数：</strong>260–290 词（约写满以下 24–26 行）</span>
+        <span><strong>实际用时：</strong>____ 分 ____ 秒</span>
+      </div>
+      <div class="lined-paper">
+        <span class="blank-long"></span><span class="blank-long"></span><span class="blank-long"></span><span class="blank-long"></span>
+        <span class="blank-long"></span><span class="blank-long"></span><span class="blank-long"></span><span class="blank-long"></span>
+        <span class="blank-long"></span><span class="blank-long"></span><span class="blank-long"></span><span class="blank-long"></span>
+        <span class="blank-long"></span><span class="blank-long"></span><span class="blank-long"></span><span class="blank-long"></span>
+        <span class="blank-long"></span><span class="blank-long"></span><span class="blank-long"></span><span class="blank-long"></span>
+        <span class="blank-long"></span><span class="blank-long"></span><span class="blank-long"></span><span class="blank-long"></span>
+        <span class="blank-long"></span><span class="blank-long"></span>
+      </div>
+      <div class="check-strip">
+        <strong>交卷前 2 分钟自查：</strong>
+        <span>[ ] 首段末句已亮明立场</span>
+        <span>[ ] 每段分论点有理由+例证</span>
+        <span>[ ] 消灭了 I am agree / 三单漏 -s</span>
+        <span>[ ] 结论没引入新观点</span>
+        <span>[ ] 总词数 ≥ 250 词</span>
+      </div>
+    </section>
+
+    <!-- ==================== 附录：参考答案（独立分页方便拆开） ==================== -->
+    <section class="page-break ans-grid">
+      <h2>附录｜配套练习完整参考答案与高分示范（可单独拆下核对）</h2>
+
+      <h3>练习 A｜听力 40 词默写标准答案</h3>
+      <p><strong>Test 1 (1–10)：</strong>1. Charlton ｜ 2. 115 ｜ 3. cash ｜ 4. entry ｜ 5. decoration(s) ｜ 6. shoes ｜ 7. conservation ｜ 8. oxygen / O2 ｜ 9. mammals ｜ 10. consumption</p>
+      <p><strong>Test 2 (11–20)：</strong>11. hostel ｜ 12. Buckleigh ｜ 13. PE9 7QT ｜ 14. politics ｜ 15. disabled ｜ 16. canal ｜ 17. rubber ｜ 18. curved ｜ 19. curtains ｜ 20. international</p>
+      <p><strong>Test 3 (21–30)：</strong>21. mushrooms ｜ 22. river ｜ 23. dancing ｜ 24. crying ｜ 25. scarf ｜ 26. attitude(s) ｜ 27. patients ｜ 28. emotions / feelings ｜ 29. comfortable ｜ 30. analysis</p>
+      <p><strong>Test 4 (31–40)：</strong>31. secondary ｜ 32. flute ｜ 33. Bythwaite ｜ 34. dry ｜ 35. roots ｜ 36. moist / damp / wet ｜ 37. variety ｜ 38. cattle ｜ 39. grasses ｜ 40. payment(s) / money</p>
+
+      <h3>练习 B｜3 张听力地图题标准答案</h3>
+      <p><strong>Test 1 S2 (p.13)：</strong>Q15 <strong>F</strong> ｜ Q16 <strong>G</strong> ｜ Q17 <strong>D</strong> ｜ Q18 <strong>H</strong> ｜ Q19 <strong>C</strong> ｜ Q20 <strong>A</strong></p>
+      <p><strong>Test 2 S2 (p.36)：</strong>Q17 <strong>G</strong> ｜ Q18 <strong>D</strong> ｜ Q19 <strong>B</strong> ｜ Q20 <strong>F</strong></p>
+      <p><strong>Test 4 S2 (p.83)：</strong>Q17 <strong>F</strong> ｜ Q18 <strong>H</strong> ｜ Q19 <strong>C</strong> ｜ Q20 <strong>B</strong></p>
+
+      <h3>练习 C｜阅读 T/F/NG 12 题答案与依据</h3>
+      <p><strong>1. NOT GIVEN</strong>（只给人口增长保守估计，未提预测方法是否改变） ｜ <strong>2. FALSE</strong>（第4段明确写 year-round 全年产出，与 depend on season 矛盾） ｜ <strong>3. FALSE</strong>（第4段写 eliminating the need for fertilisers） ｜ <strong>4. FALSE</strong>（第2段写历史上曾由 11 道船闸连接） ｜ <strong>5. NOT GIVEN</strong>（未提是否有人反对该设计） ｜ <strong>6. NOT GIVEN</strong>（未与世界其他船只升降机作唯一性比较） ｜ <strong>7. FALSE</strong>（第4-5段阿基米德原理使水箱总重始终一致） ｜ <strong>8. NOT GIVEN</strong>（未提当天是否仅此一艘沉没） ｜ <strong>9. FALSE</strong>（第5段写 as yet unaware it housed a treasure trove） ｜ <strong>10. FALSE</strong>（第3段写丝绸被认为 worth more than gold） ｜ <strong>11. FALSE</strong>（第4段写拜占庭严格垄断，是阿拉伯人传向西方的） ｜ <strong>12. NOT GIVEN</strong>（未比较丝线是否占中国出口大头）</p>
+
+      <h3>练习 D｜阅读 15 组同义替换标准答案</h3>
+      <p>1-<strong>D</strong> ｜ 2-<strong>H</strong> ｜ 3-<strong>K</strong> ｜ 4-<strong>A</strong> ｜ 5-<strong>L</strong> ｜ 6-<strong>J</strong> ｜ 7-<strong>I</strong> ｜ 8-<strong>N</strong> ｜ 9-<strong>B</strong> ｜ 10-<strong>M</strong> ｜ 11-<strong>G</strong> ｜ 12-<strong>E</strong> ｜ 13-<strong>C</strong> ｜ 14-<strong>F</strong> ｜ 15-<strong>O</strong></p>
+
+      <h3>练习 E｜小作文趋势词与 4 题参考示范</h3>
+      <p><strong>E-1 趋势表达：</strong>1. rose/increased steadily ｜ 2. rose/increased dramatically ｜ 3. rose/increased gradually ｜ 4. plunged to ｜ 5. peaked at / reached a high of ｜ 6. stood at ｜ 7. fluctuated ｜ 8. fell/dropped dramatically/sharply ｜ 9. reached a trough of ｜ 10. remained constant/unchanged/stable at ｜ 11. leveled off/evened out at ｜ 12. hit a low of</p>
+      <p><strong>E-2 首段与 Overview 示范：</strong></p>
+      <ul>
+        <li><strong>Test 2 T1：</strong><em>The two pie charts compare the percentages of UK undergraduates at an English university who spoke foreign languages in 2000 and 2010.</em> ／ <em>Overall, the proportion of students who spoke at least one foreign language rose over the decade, with Spanish remaining the most popular choice, whereas monolingual students halved.</em></li>
+        <li><strong>Test 4 T1：</strong><em>The table compares visitor numbers at Ashdown Museum in the year prior to and following its refurbishment, while the pie charts illustrate changes in visitor satisfaction during the same two periods.</em> ／ <em>Overall, both total attendance and overall satisfaction rose markedly after the renovation, with satisfied visitors overtaking dissatisfied ones to form a large majority.</em></li>
+        <li><strong>Test 1 T1：</strong><em>The six pie charts compare the proportions of water consumed by industry, agriculture and households across six global regions.</em> ／ <em>Overall, agriculture accounts for the vast majority of water use in developing regions, whereas industrial consumption dominates in North America and Europe, and domestic use takes the smallest share everywhere.</em></li>
+        <li><strong>Test 3 T1：</strong><em>The line graph illustrates per capita carbon dioxide emissions in the UK, Sweden, Italy and Portugal from 1967 to 2007.</em> ／ <em>Overall, per-person emissions fell in the UK and Sweden but increased significantly in Italy and Portugal, with the UK remaining the highest emitter throughout.</em></li>
+      </ul>
+
+      <h3>练习 F｜病句修改与大作文 4 题破题参考</h3>
+      <p><strong>F-1 病句参考改法：</strong>1. <code>I largely agree with this idea.</code> ｜ 2. <code>...has become more and more serious.</code> ｜ 3. <code>If everybody recycles the waste, the Earth will be cleaner.</code> ｜ 4. <code>...we are going to talk about...</code>（更好：<code>This essay will examine both perspectives.</code>） ｜ 5. <code>From my point of view / In my opinion, I agree that...</code> ｜ 6. <code>It is obvious that the number of visitors...</code> ｜ 7. <code>the number of visitors</code>（可数名词用 number） ｜ 8. <code>..., because other types of progress such as the healthcare system...</code> ｜ 9. <code>A country that does not have a complete system is not...</code> ｜ 10. <code>...could raise/increase satisfaction with their lives.</code></p>
+      <p><strong>F-2 破题要点：</strong><strong>Test 2</strong>（立论：自愿缺乏约束，韩/德罚款后回收率跃升 + 让步：配套清晰标签与便捷回收点）；<strong>Test 3</strong>（A方：求职竞争与出国旅游刚需 + B方/己见：了解原著文化与锻炼双语认知同样关键）；<strong>Test 1</strong>（立论：铁路运力大、缓解高速拥堵与碳排 + 让步：乡村与短途末梢运输仍需公路平衡基建）；<strong>Test 4</strong>（A方：GDP与税收支撑医疗科研减贫 + B方/己见：环境、教育与国民健康才是发展终极目标，缺一不可）。</p>
+    </section>
+  </main>
+</body>
+</html>

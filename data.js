@@ -49,10 +49,39 @@ export const ROOKIE_SWITCHES = [
     detail: 'Task 1 只客观汇报数据，写原因和感想会扣分；第二段必须写 Overall 总体概述句（不带具体数字）。Task 2 要写满 250 词且每段展开 Reason + Example。'
   },
   {
-    title: '没本地音频怎么刷听力？2 分钟解决',
-    detail: '首选 B站/喜马拉雅/雅思哥搜「剑桥雅思11 听力」开 1.25x 倍速听；没条件戴耳机时，直接看真题 PDF 书末 Audioscripts（p.103–123），书里已帮你用下划线标出了 Q1–Q40 全部答案句！'
+    title: '没本地音频怎么刷听力？3 个已实测直达通道',
+    detail: '1）已在本网页「听力」页内置了 IELTS Training Online（免登录原版 MP3 播放器）与 B站按节直达搜索链接；2）手机上还可在「雅思哥 / 雅思考满分 / 小站雅思 / 喜马拉雅」搜「剑桥雅思11 听力」开 1.25x 倍速；3）没条件戴耳机时，直接看真题 PDF 书末 Audioscripts（p.103–123）下划线标出的 Q1–Q40 答案句！'
   }
 ];
+
+export const AUDIO_RESOURCES = [
+  {
+    test: 1,
+    label: 'Test 1 在线音频（S1–S4）',
+    url: 'https://ieltstrainingonline.com/practice-cam-11-listening-test-01/',
+    note: '含 Section 1–4 独立 MP3 播放器 + 文本与答案'
+  },
+  {
+    test: 2,
+    label: 'Test 2 在线音频（S1–S4）',
+    url: 'https://ieltstrainingonline.com/practice-cam-11-listening-test-02/',
+    note: '含 Section 1–4 独立 MP3 播放器 + 文本与答案'
+  },
+  {
+    test: 3,
+    label: 'Test 3 在线音频（S1–S4）',
+    url: 'https://ieltstrainingonline.com/practice-cam-11-listening-test-03/',
+    note: '含 Section 1–4 独立 MP3 播放器 + 文本与答案'
+  },
+  {
+    test: 4,
+    label: 'Test 4 在线音频（S1–S4）',
+    url: 'https://ieltstrainingonline.com/practice-cam-11-listening-test-04/',
+    note: '含 Section 1–4 独立 MP3 播放器 + 文本与答案'
+  }
+];
+
+export const BILI_ALL_AUDIO_URL = 'https://search.bilibili.com/all?keyword=%E5%89%91%E6%A1%A5%E9%9B%85%E6%80%9D11+%E5%90%AC%E5%8A%9B';
 
 export const SPRINT_PLAN = [
   {
@@ -129,7 +158,7 @@ export const SPRINT_PLAN = [
   }
 ];
 
-export const LISTENING_SECTIONS = [
+const RAW_LISTENING_SECTIONS = [
   {
     id: 't1s1',
     test: 1,
@@ -491,6 +520,15 @@ export const LISTENING_SECTIONS = [
     ]
   }
 ];
+
+export const LISTENING_SECTIONS = RAW_LISTENING_SECTIONS.map((sec) => {
+  const res = AUDIO_RESOURCES.find((r) => r.test === sec.test);
+  return {
+    ...sec,
+    audioPageUrl: res ? res.url : '',
+    biliSearchUrl: `https://search.bilibili.com/all?keyword=${encodeURIComponent(`剑桥雅思11 听力 Test${sec.test} Section${sec.section}`)}`
+  };
+});
 
 export const READING_ERRATUM = {
   title: '🚨 重要勘误：《剑11》书 p.131（Test 4 阅读答案）印刷有误！',
