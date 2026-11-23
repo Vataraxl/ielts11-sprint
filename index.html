@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="description" content="《剑桥雅思11》期末48小时冲刺复习助手：含16个听力Section答案定位、12篇阅读及Test4勘误、8道大小作文骨架与英音听写自测。">
+  <title>《剑11》期末 48h 冲刺助手</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%233749B8'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-size='28' font-weight='700' font-family='sans-serif' fill='white'%3E11%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="header-top">
+        <div class="brand-group">
+          <h1 id="app-title">《剑11》期末 48h 冲刺</h1>
+          <p class="subtitle">大一公选课 · 周三期末考 · 手机离线可用</p>
+        </div>
+        <div class="countdown-box">
+          <label for="exam-slot" class="visually-hidden">选择周三考试时间</label>
+          <select id="exam-slot" class="exam-select" aria-label="选择周三考试时间">
+            <option value="wed-am">周三 09:00 场</option>
+            <option value="wed-pm">周三 14:00 场</option>
+          </select>
+          <span id="countdown-pill" class="countdown-pill" aria-live="polite">计算中...</span>
+        </div>
+      </div>
+      <div class="progress-row">
+        <label for="overall-progress" class="progress-label">总进度 <strong id="progress-text">0%</strong></label>
+        <progress id="overall-progress" max="100" value="0">0%</progress>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <!-- 1. 冲刺日程与考情总览 -->
+    <section id="view-plan" class="view-panel section-stack" aria-labelledby="plan-heading">
+      <h2 id="plan-heading">考情速览与 48 小时冲刺打卡</h2>
+
+      <div class="card">
+        <div class="toolbar">
+          <h3>便携模考计时器</h3>
+          <div class="filter-group">
+            <button type="button" class="btn btn-compact" data-timer-min="20">20m 小作文/单篇阅读</button>
+            <button type="button" class="btn btn-compact" data-timer-min="40">40m 大作文</button>
+          </div>
+        </div>
+        <div id="plan-timer-bar" class="timer-bar" hidden>
+          <span class="timer-display" id="plan-timer-display">20:00</span>
+          <div class="filter-group">
+            <button type="button" class="btn btn-compact" data-timer-action="toggle">暂停</button>
+            <button type="button" class="btn btn-compact" data-timer-action="reset">重置</button>
+            <button type="button" class="btn btn-compact" data-timer-action="close">收起</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="exam-rules-container" class="card"></div>
+
+      <div id="rookie-switches-container" class="accordion" aria-label="高考130转雅思3大避坑切换"></div>
+
+      <div id="sprint-plan-container" class="card-grid"></div>
+    </section>
+
+    <!-- 2. 听力 16 选 1 题库 -->
+    <section id="view-listening" class="view-panel section-stack" aria-labelledby="listening-heading" hidden>
+      <div class="toolbar">
+        <h2 id="listening-heading">听力 16 个 Section（期末 16 选 1 原题）</h2>
+        <button type="button" class="btn btn-compact" id="listening-mask-btn" aria-pressed="false">遮罩自测：关</button>
+      </div>
+      <p class="small-note">无本地音频？可去 B站/喜马拉雅搜对应关键词开 1.25x 倍速，或直接看书末 <strong>p.103–123 原文下划线句</strong>。标 <span aria-hidden="true">★</span> 即可筛选老师划定范围。</p>
+      <div id="listening-filters" class="filter-group" role="group" aria-label="听力筛选"></div>
+      <div id="listening-list" class="accordion" aria-label="剑11听力16个Section列表"></div>
+    </section>
+
+    <!-- 3. 阅读 12 篇题库与勘误 -->
+    <section id="view-reading" class="view-panel section-stack" aria-labelledby="reading-heading" hidden>
+      <div class="toolbar">
+        <h2 id="reading-heading">阅读 12 篇文章（原题 + 课外）</h2>
+        <button type="button" class="btn btn-compact" id="reading-mask-btn" aria-pressed="false">遮罩自测：关</button>
+      </div>
+      <div id="reading-erratum-box" class="alert-card" role="note" aria-label="Test 4 官方勘误提示"></div>
+      <div id="reading-strategies-box" class="accordion" aria-label="阅读四大题型速通卡"></div>
+      <div id="reading-filters" class="filter-group" role="group" aria-label="阅读筛选"></div>
+      <div id="reading-list" class="accordion" aria-label="剑11阅读12篇文章列表"></div>
+    </section>
+
+    <!-- 4. 写作双课件精华与 8 题提纲 -->
+    <section id="view-writing" class="view-panel section-stack" aria-labelledby="writing-heading" hidden>
+      <div class="toolbar">
+        <h2 id="writing-heading">写作双课件骨架 & 8 题全拆解</h2>
+        <div class="filter-group">
+          <button type="button" class="btn btn-compact" data-timer-min="20">20m 小作文</button>
+          <button type="button" class="btn btn-compact" data-timer-min="40">40m 大作文</button>
+        </div>
+      </div>
+
+      <div id="writing-timer-bar" class="timer-bar" hidden>
+        <span class="timer-display" id="writing-timer-display">20:00</span>
+        <div class="filter-group">
+          <button type="button" class="btn btn-compact" data-timer-action="toggle">暂停</button>
+          <button type="button" class="btn btn-compact" data-timer-action="reset">重置</button>
+          <button type="button" class="btn btn-compact" data-timer-action="close">收起</button>
+        </div>
+      </div>
+
+      <div class="writing-tabs">
+        <div class="sub-tablist" role="tablist" aria-label="写作复习模块">
+          <button type="button" role="tab" id="tab-w-prompts" aria-selected="true" tabindex="0">8 题提纲与重点</button>
+          <button type="button" role="tab" id="tab-w-task1" aria-selected="false" tabindex="-1">小作文三步法</button>
+          <button type="button" role="tab" id="tab-w-task2" aria-selected="false" tabindex="-1">大作文四步法 + 7分范文</button>
+        </div>
+        <div class="tab-panels">
+          <div role="tabpanel" id="panel-w-prompts" aria-labelledby="tab-w-prompts" tabindex="0">
+            <div class="panel-inner" id="writing-prompts-inner"></div>
+          </div>
+          <div role="tabpanel" id="panel-w-task1" aria-labelledby="tab-w-task1" hidden>
+            <div class="panel-inner" id="writing-task1-inner"></div>
+          </div>
+          <div role="tabpanel" id="panel-w-task2" aria-labelledby="tab-w-task2" hidden>
+            <div class="panel-inner" id="writing-task2-inner"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. 听力高频拼写听写自测 -->
+    <section id="view-quiz" class="view-panel section-stack" aria-labelledby="quiz-heading" hidden>
+      <div class="toolbar">
+        <h2 id="quiz-heading">听力原题拼写听写机（81 词）</h2>
+        <span id="quiz-counter" class="badge badge-brand">1 / 81</span>
+      </div>
+      <p class="small-note">全部提取自《剑11》16 个 Section 填空标准答案，支持英音朗读（不依赖外网音频）+ 语境挖空双提示，拼错自动收入错词本。</p>
+
+      <div id="quiz-filters" class="filter-group" role="group" aria-label="听写范围筛选"></div>
+
+      <div id="quiz-card" class="card quiz-card">
+        <div class="meta-row">
+          <span id="quiz-tag" class="badge badge-brand">Test 1 · S1</span>
+          <span id="quiz-hard-badge" class="badge badge-hot" hidden>高频易错</span>
+          <span id="quiz-wrong-count" class="badge">错词本：0 词</span>
+        </div>
+
+        <div class="quiz-prompt-box">
+          <p id="quiz-sentence" class="quiz-sentence"></p>
+          <p id="quiz-zh" class="quiz-zh"></p>
+        </div>
+
+        <div class="filter-group">
+          <button type="button" class="btn btn-primary" id="quiz-speak-btn">🔊 朗读单词</button>
+          <button type="button" class="btn" id="quiz-slow-btn">🐢 0.85x 慢速</button>
+          <button type="button" class="btn" id="quiz-hint-btn">💡 看首字母/提示</button>
+        </div>
+
+        <form id="quiz-form" class="quiz-input-row" autocomplete="off">
+          <label for="quiz-input" class="visually-hidden">输入听到的英文单词或数字</label>
+          <input id="quiz-input" class="quiz-input" type="text" inputmode="text" autocapitalize="none" spellcheck="false" placeholder="输入拼写后点提交（如 conservation）">
+          <button type="submit" class="btn btn-primary">提交核对</button>
+        </form>
+
+        <div id="quiz-feedback" class="quiz-feedback" hidden aria-live="polite"></div>
+
+        <div class="toolbar">
+          <button type="button" class="btn" id="quiz-prev-btn">← 上一题</button>
+          <button type="button" class="btn" id="quiz-skip-btn">直接看答案</button>
+          <button type="button" class="btn btn-primary" id="quiz-next-btn">下一题 →</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <nav class="bottom-nav" aria-label="主导航">
+    <ul>
+      <li>
+        <button type="button" class="nav-btn" data-view="plan" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/>
+          </svg>
+          <span>日程</span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="nav-btn" data-view="listening">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+          </svg>
+          <span>听力</span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="nav-btn" data-view="reading">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+          </svg>
+          <span>阅读</span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="nav-btn" data-view="writing">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/>
+          </svg>
+          <span>写作</span>
+        </button>
+      </li>
+      <li>
+        <button type="button" class="nav-btn" data-view="quiz">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+          </svg>
+          <span>听写</span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
